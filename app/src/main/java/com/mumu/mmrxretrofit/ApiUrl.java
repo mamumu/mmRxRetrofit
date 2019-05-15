@@ -50,6 +50,10 @@ public interface ApiUrl {
     @FormUrlEncoded
     @POST("user")
     Observable<BaseResponse<LoginEntity>> getLogin(@FieldMap Map<String, String> map);
+
+    @FormUrlEncoded
+    @POST("auth-center/oauth/token")
+    Observable<BaseResponse<TokenEntity>> getToken(@FieldMap Map<String, String> map);
 //    /**
 //     * TODO Get请求
 //     */

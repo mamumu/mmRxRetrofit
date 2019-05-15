@@ -1,5 +1,6 @@
 package com.mumu.mmrxretrofit;
 
+import com.mumu.mmrxretrofit.retrofit.BaseObserverToken;
 import com.mumu.mmrxretrofit.retrofit.MyObserver;
 import com.mumu.mmrxretrofit.retrofit.RetrofitUtils;
 import com.mumu.mmrxretrofit.retrofit.RxHelper;
@@ -30,4 +31,15 @@ public class RequestUtils {
                 .getLogin(map).compose(RxHelper.observableIO2Main(context))
                 .subscribe(observer);
     }
+    /**
+     * Get 请求demo
+     * @param context
+     * @param observer
+     */
+    public static void getToken(RxActivity context, HashMap map, BaseObserverToken<TokenEntity> observer){
+        RetrofitUtils.getApiUrl()
+                .getToken(map).compose(RxHelper.observableIO2Main(context))
+                .subscribe(observer);
+    }
+
 }
