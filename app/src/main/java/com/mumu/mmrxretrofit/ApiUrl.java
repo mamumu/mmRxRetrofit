@@ -47,13 +47,15 @@ public interface ApiUrl {
     @GET("events/user")
     Observable<BaseResponse<Demo>> getDemo(@QueryMap HashMap<String, Object> map);
 
-    @FormUrlEncoded
-    @POST("user")
-    Observable<BaseResponse<LoginEntity>> getLogin(@FieldMap Map<String, String> map);
+    @POST("auth-center/access/login")
+    Observable<BaseResponse<LoginEntity.RestbodyBean>> getLogin(@Header("Authorization") String auth, @Header("Content-Type") String cc, @Body LoginParms body);
 
     @FormUrlEncoded
     @POST("auth-center/oauth/token")
-    Observable<BaseResponse<TokenEntity>> getToken(@FieldMap Map<String, String> map);
+    Observable<TokenEntity> getToken(@FieldMap Map<String, String> map);
+
+    @GET("auth-center/oauth/token")
+    Observable<TokenEntity> getToken1(@QueryMap Map<String, String> map);
 //    /**
 //     * TODO Get请求
 //     */

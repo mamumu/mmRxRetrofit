@@ -133,8 +133,9 @@ public class OkHttp3Utils {
             //401跳转到登录页面；402跳转到开户审核中界面；403跳转到开户界面
             build = builder1
 //                    .removeHeader("User-Agent")
-//                    .addHeader("User-Agent", getUserAgent())
-                    .addHeader("Authorization", token)
+                    .addHeader("User-Agent", getUserAgent())
+//                    .addHeader("Authorization", token)
+                    .addHeader("Content-Type", "application/json;charset=UTF-8")
 //                    .addHeader("appVersion", SystemToolUtils.getAppVersionName(AppManager.topActivity()))
 //                    .addHeader("bundleID", SystemToolUtils.getAppPackageName(AppManager.topActivity()))
 //                    .addHeader("machineType", "2")

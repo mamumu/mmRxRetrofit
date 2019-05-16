@@ -26,9 +26,10 @@ public class RequestUtils {
      * @param context
      * @param observer
      */
-    public static void getLogin(RxActivity context, HashMap map, MyObserver<LoginEntity.RestbodyBean> observer){
+    public static void getLogin(RxActivity context, String auth, String cc, LoginParms body, MyObserver<LoginEntity.RestbodyBean> observer){
         RetrofitUtils.getApiUrl()
-                .getLogin(map).compose(RxHelper.observableIO2Main(context))
+                .getLogin(auth,cc,body).compose(RxHelper.observableIO2Main(context))
+                .compose(context.bindToLifecycle())
                 .subscribe(observer);
     }
     /**
@@ -39,6 +40,7 @@ public class RequestUtils {
     public static void getToken(RxActivity context, HashMap map, BaseObserverToken<TokenEntity> observer){
         RetrofitUtils.getApiUrl()
                 .getToken(map).compose(RxHelper.observableIO2Main(context))
+                .compose(context.bindToLifecycle())
                 .subscribe(observer);
     }
 

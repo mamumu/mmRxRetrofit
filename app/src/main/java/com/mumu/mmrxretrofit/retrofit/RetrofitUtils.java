@@ -36,7 +36,9 @@ public class RetrofitUtils {
 
     public ApiUrl getRetrofit() {
         // 初始化Retrofit
-        ApiUrl apiUrl = initRetrofit(initOkHttp()) .create(ApiUrl.class);
+//        ApiUrl apiUrl = initRetrofit(initOkHttp()) .create(ApiUrl.class);
+        OkHttp3Utils okHttp3Utils = new OkHttp3Utils();
+        ApiUrl apiUrl = initRetrofit(okHttp3Utils.getOkHttpClient()) .create(ApiUrl.class);
         return apiUrl;
     }
 

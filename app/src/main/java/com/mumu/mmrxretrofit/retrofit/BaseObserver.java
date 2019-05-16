@@ -34,7 +34,7 @@ public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
 
     }
 
-    public abstract void onSuccess(T result,Object num);
+    public abstract void onSuccess(T result,BaseResponse.ExtendBean num);
 
     public abstract void onFailure(Throwable e,String errorMsg);
 
